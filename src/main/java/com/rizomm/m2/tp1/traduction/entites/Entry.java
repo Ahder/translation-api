@@ -24,7 +24,7 @@ public class Entry {
     @NotBlank
     private String value;
 
-    @ManyToOne//(cascade = CascadeType.REMOVE)
+    @ManyToOne(cascade = CascadeType.REMOVE)
     @JsonIgnore
     private Translation translation;
 
