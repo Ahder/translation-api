@@ -34,7 +34,6 @@ public class EntryServiceImp implements EntryService {
             if (translation.isPresent()) {
                 Optional<Entry> entry1 = entryRepository.findById(entryId);
                 if (entry1.isPresent()) {
-                    entry.setTranslation(translation.get());
                     entry.setId(entryId);
                     return entryRepository.save(entry);
                 }

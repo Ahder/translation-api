@@ -1,7 +1,5 @@
 package com.rizomm.m2.tp1.traduction.entites;
 
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,6 +7,8 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.List;
+
+import static javax.persistence.CascadeType.ALL;
 
 @Entity
 @Data
@@ -26,7 +26,7 @@ public class Application {
     @NotBlank
     private String description;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JsonIgnore
+    @OneToMany(cascade = ALL)
+    @JoinColumn(name = "translation_id")
     private List<Translation> translations;
 }

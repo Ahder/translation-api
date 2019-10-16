@@ -25,7 +25,6 @@ public class TranslationServiceImp implements TranslationService {
         // check if application exists
         Optional<Application> application = applicationRepository.findById(applicationId);
         if (application.isPresent()) {
-        translation.setApplication(application.get());
         return  translationRepository.save(translation);
         }
         return null;

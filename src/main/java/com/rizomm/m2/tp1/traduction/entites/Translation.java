@@ -1,4 +1,5 @@
 package com.rizomm.m2.tp1.traduction.entites;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -6,6 +7,8 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.List;
+
+import static javax.persistence.CascadeType.ALL;
 
 
 @Entity
@@ -21,9 +24,7 @@ public class Translation {
     @NotBlank
     private String language;
 
-    @ManyToOne
-    private Application application;
-
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = ALL)
+    @JoinColumn(name = "entry_id")
     private List<Entry> entries;
 }
